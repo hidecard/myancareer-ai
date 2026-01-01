@@ -44,6 +44,7 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'model', parts: {text: string}[]}[]>([]);
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [isSearchingJobs, setIsSearchingJobs] = useState(false);
+  const [jobSearchResults, setJobSearchResults] = useState<{title: string, company: string, location: string, salary: string, description: string, source: string}[]>([]);
 
   useEffect(() => {
     if (chatEndRef.current) {
@@ -87,10 +88,16 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
   const handleSearchJobs = async () => {
     setIsSearchingJobs(true);
     try {
-      await searchJobsInMyanmar(guide.jobTitle);
-      alert("အလုပ်အကိုင်များကို ရှာဖွေပြီးပါပြီ။ Mentor AI နှင့် အသေးစိတ် ဆွေးနွေးနိုင်ပါသည်။");
+      const result = await searchJobsInMyanmar(guide.jobTitle);
+      setJobSearchResults(result.jobs || []);
+      if (result.jobs && result.jobs.length > 0) {
+        alert(`အလုပ်အကိုင် ${result.jobs.length} ခု ရှာဖွေပြီးပါပြီ။ အောက်တွင် ကြည့်ရှုနိုင်ပါသည်။`);
+      } else {
+        alert("အလုပ်အကိုင်များ မရှိသေးပါ။ Mentor AI နှင့် အသေးစိတ် ဆွေးနွေးနိုင်ပါသည်။");
+      }
     } catch (err) {
       console.error(err);
+      alert("အလုပ်အကိုင် ရှာဖွေရာတွင် အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့ပါသည်။");
     } finally {
       setIsSearchingJobs(false);
     }
@@ -381,6 +388,42 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
               ))}
             </div>
           </div>
+
+          {/* JOB SEARCH RESULTS SECTION */}
+          {jobSearchResults.length > 0 && (
+            <div className={`space-y-8 pt-10 border-t border-slate-100 ${(pdfLayout === 'minimalist') ? 'print:hidden' : ''}`}>
+              <div className="space-y-2">
+                <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">ရှာဖွေထားသော အလုပ်အကိုင်များ (Found Jobs)</h3>
+                <p className="text-slate-500 font-bold text-sm">မြန်မာနိုင်ငံတွင် သင့်အလုပ်နှင့် ဆက်စပ်သော အခွင့်အလမ်းများ</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {jobSearchResults.map((job, idx) => (
+                  <div key={idx} className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:border-emerald-300 transition-all group">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-black text-slate-900 leading-tight">{job.title}</h4>
+                        <p className="text-emerald-600 font-bold text-sm">{job.company}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-2 mb-4">
+                      <p className="text-slate-600 text-sm leading-relaxed font-medium">{job.description}</p>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <span className="bg-slate-100 px-2 py-1 rounded-md">{job.location}</span>
+                        <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-md">{job.salary}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Source: {job.source}</span>
+                      <button className="text-emerald-600 hover:text-emerald-700 font-bold text-sm">အသေးစိတ် →</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className={`roadmap-step bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl print:bg-slate-900 print:p-12 print:mt-10 ${pdfLayout === 'minimalist' ? 'print:hidden' : ''}`}>
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full"></div>

@@ -16,10 +16,10 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-6xl md:text-7xl mb-6 leading-[1.15] md:leading-[1.1]">
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-[1.15] md:leading-[1.1]">
             သင့်ရဲ့ <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">အနာဂတ် အလုပ်အကိုင်</span> ကို AI နဲ့ ပုံဖော်လိုက်ပါ
           </h1>
-          <p className="mt-4 md:mt-8 text-base md:text-xl leading-relaxed text-slate-600 max-w-2xl mx-auto font-medium px-4">
+          <p className="mt-4 md:mt-8 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-slate-600 max-w-2xl mx-auto font-medium px-2 sm:px-4">
             ဘာကိုသင်ယူရမှန်း မသိဖြစ်နေသလား? မိမိမှာရှိတဲ့ စွမ်းရည်တွေနဲ့ ဘယ်အလုပ်က အကိုက်ညီဆုံးလဲဆိုတာကို MyanCareer AI က လမ်းညွှန်ပေးမှာပါ။
           </p>
           <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">

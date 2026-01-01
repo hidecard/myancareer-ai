@@ -123,13 +123,13 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
         scale: 2, 
         useCORS: true, 
         letterRendering: true,
-        windowWidth: 1000,
+        windowWidth: 1200,
         logging: false
       },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       pagebreak: { 
-        mode: ['avoid-all', 'css', 'legacy'],
-        avoid: ['.roadmap-step', '.sub-grid-item', '.related-job-card']
+        mode: ['avoid-all', 'css'],
+        avoid: ['.roadmap-step', '.related-job-card', '.sub-grid-item']
       }
     };
 
@@ -206,7 +206,7 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
       </div>
 
       {/* MAIN EXPORTABLE AREA */}
-      <div ref={printRef} className={`print-container bg-white rounded-[2rem] md:rounded-3xl overflow-hidden shadow-sm border border-slate-100 ${pdfLayout}`}>
+      <div ref={printRef} className="print-container bg-white rounded-[2rem] md:rounded-3xl overflow-hidden shadow-sm border border-slate-100">
         {/* PDF Branding Header */}
         <div className="hidden print:flex items-center justify-between p-10 border-b-2 border-slate-100 bg-slate-50">
           <div className="flex items-center gap-4">

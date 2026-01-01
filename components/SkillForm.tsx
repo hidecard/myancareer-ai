@@ -220,10 +220,10 @@ const SkillForm: React.FC<SkillFormProps> = ({ onSubmit, isLoading }) => {
   }, [skills, selectedJobData]);
 
   return (
-    <div className="w-full p-4 sm:p-6 md:p-8 lg:p-10 bg-white rounded-none md:rounded-[2rem] lg:rounded-[3rem] shadow-sm border border-slate-100 animate-fade-in mb-10 md:mb-20">
-      <div className="mb-4 sm:mb-6 md:mb-10 text-center sm:text-left">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 mb-2 md:mb-3">စတင်ဆန်းစစ်ကြည့်ရအောင်</h2>
-        <p className="text-slate-500 font-bold text-xs sm:text-sm md:text-base">သင့်အကြောင်းကို AI က သိရှိနိုင်ဖို့ အောက်ပါအချက်အလက်တွေကို ဖြည့်စွက်ပေးပါ။</p>
+    <div className="w-full p-4 sm:p-6 md:p-8 bg-white rounded-none md:rounded-[1.5rem] lg:rounded-[2rem] shadow-sm border border-slate-100 animate-fade-in mb-8 md:mb-16">
+      <div className="mb-4 sm:mb-6 md:mb-8 text-center sm:text-left">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 mb-2">စတင်ဆန်းစစ်ကြည့်ရအောင်</h2>
+        <p className="text-slate-500 font-bold text-xs sm:text-sm">သင့်အကြောင်းကို AI က သိရှိနိုင်ဖို့ အောက်ပါအချက်အလက်တွေကို ဖြည့်စွက်ပေးပါ။</p>
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10">

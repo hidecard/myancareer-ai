@@ -64,52 +64,52 @@ const App: React.FC = () => {
 
       <main className="flex-grow w-full">
         {currentPage === 'home' && (
-          <div className="space-y-8 sm:space-y-12 md:space-y-20 lg:space-y-24">
+          <div className="space-y-8 sm:space-y-10 md:space-y-16 lg:space-y-20">
             <Hero onStart={handleStartAssessment} />
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 no-print px-2 md:px-0">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 no-print px-2 md:px-0">
                {[
                  { label: 'ကူညီပေးပြီးသူ', val: '၁၀,၀၀၀+', color: 'blue' },
                  { label: 'အလုပ်အကိုင် ကဏ္ဍ', val: '၂၅+', color: 'indigo' },
                  { label: 'ကျွမ်းကျင်မှု နယ်ပယ်', val: '၂၀၀+', color: 'emerald' },
                  { label: 'AI တိကျမှု', val: '၉၈%', color: 'amber' }
                ].map((stat, i) => (
-                 <div key={i} className="bg-white p-4 sm:p-5 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col justify-center transition-all hover:shadow-xl hover:-translate-y-1">
-                    <p className={`text-lg sm:text-xl md:text-3xl lg:text-4xl font-black text-${stat.color}-600`}>{stat.val}</p>
-                    <p className="text-[8px] sm:text-[9px] md:text-[10px] text-slate-500 font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-2 sm:mt-3">{stat.label}</p>
+                 <div key={i} className="bg-white p-3 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-sm border border-slate-100 text-center flex flex-col justify-center transition-all hover:shadow-lg hover:-translate-y-1">
+                    <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-${stat.color}-600`}>{stat.val}</p>
+                    <p className="text-[8px] sm:text-[9px] md:text-[10px] text-slate-500 font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-1.5 sm:mt-2">{stat.label}</p>
                  </div>
                ))}
             </div>
 
-            <section id="trends" className="animate-fade-in scroll-mt-24">
+            <section id="trends" className="animate-fade-in scroll-mt-20">
               <TrendChart />
             </section>
             
-            <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-28 bg-slate-900 rounded-none sm:rounded-[2.5rem] lg:rounded-[4rem] px-4 sm:px-6 md:px-10 lg:px-16 text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 bg-blue-600/10 blur-[80px] sm:blur-[100px] md:blur-[120px] rounded-full"></div>
-              <div className="absolute bottom-0 left-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-indigo-600/10 blur-[60px] sm:blur-[80px] md:blur-[100px] rounded-full"></div>
+            <section className="py-8 sm:py-10 md:py-14 lg:py-16 xl:py-20 bg-slate-900 rounded-none sm:rounded-[2rem] lg:rounded-[3rem] px-4 sm:px-6 md:px-10 lg:px-14 text-white relative overflow-hidden shadow-xl">
+              <div className="absolute top-0 right-0 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-blue-600/10 blur-[60px] sm:blur-[80px] md:blur-[100px] rounded-full"></div>
+              <div className="absolute bottom-0 left-0 w-28 sm:w-40 md:w-56 h-28 sm:h-40 md:h-56 bg-indigo-600/10 blur-[40px] sm:blur-[60px] md:blur-[80px] rounded-full"></div>
               
-              <div className="max-w-3xl lg:max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20 relative z-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight">အလုပ်အကိုင် အခွင့်အလမ်းများ</h2>
-                <p className="text-slate-400 font-bold text-sm sm:text-base md:text-lg max-w-xl lg:max-w-2xl mx-auto">ကျွန်ုပ်တို့၏ AI သည် သင့်ကို အောက်ပါဝန်ဆောင်မှုများဖြင့် ကူညီပေးပါမည်</p>
+              <div className="max-w-3xl lg:max-w-4xl mx-auto text-center mb-8 sm:mb-10 md:mb-14 lg:mb-16 relative z-10">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black mb-3 sm:mb-4 leading-tight">အလုပ်အကိုင် အခွင့်အလမ်းများ</h2>
+                <p className="text-slate-400 font-bold text-xs sm:text-sm md:text-base max-w-xl lg:max-w-2xl mx-auto">ကျွန်ုပ်တို့၏ AI သည် သင့်ကို အောက်ပါဝန်ဆောင်မှုများဖြင့် ကူညီပေးပါမည်</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 relative z-10">
                 {[
                   { id: 1, color: 'blue', title: 'မြန်ဆန်သော ဆန်းစစ်မှု', desc: 'သင့်ရဲ့ ကျွမ်းကျင်မှုတွေကို မိနစ်ပိုင်းအတွင်းမှာပဲ AI က တိကျစွာ ခွဲခြမ်းစိတ်ဖြာပေးပါတယ်။' },
                   { id: 2, color: 'emerald', title: 'ပြည့်စုံသော လမ်းပြမြေပုံ', desc: 'သင်တက်လှမ်းလိုတဲ့ ရာထူးရောက်ဖို့ လိုအပ်တဲ့ အဆင့်တိုင်းကို သေချာဖော်ပြပေးပါတယ်။' },
                   { id: 3, color: 'purple', title: 'PDF အဖြစ် သိမ်းဆည်းနိုင်မှု', desc: 'သင့်ရဲ့ Career Guide ကို ဖုန်းထဲမှာပဲ အလွယ်တကူ သိမ်းဆည်းပြီး အချိန်မရွေး ပြန်ကြည့်နိုင်ပါတယ်။' }
                 ].map((feature) => (
-                  <div key={feature.id} className="group bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[2rem] border border-white/10 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-${feature.color}-500 rounded-xl sm:rounded-2xl flex items-center justify-center text-white mb-6 sm:mb-8 font-black text-xl sm:text-2xl shadow-lg sm:shadow-xl shadow-${feature.color}-500/20 group-hover:scale-110 transition-transform`}>{feature.id}</div>
-                    <h4 className="font-black text-lg sm:text-xl md:text-2xl mb-4">{feature.title}</h4>
-                    <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-bold opacity-80">{feature.desc}</p>
+                  <div key={feature.id} className="group bg-white/5 p-5 sm:p-6 md:p-7 lg:p-8 rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-${feature.color}-500 rounded-xl sm:rounded-xl flex items-center justify-center text-white mb-4 sm:mb-5 font-black text-lg sm:text-xl shadow-lg sm:shadow-xl shadow-${feature.color}-500/20 group-hover:scale-105 transition-transform`}>{feature.id}</div>
+                    <h4 className="font-black text-base sm:text-lg md:text-xl mb-3">{feature.title}</h4>
+                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-bold opacity-80">{feature.desc}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 xl:mt-32 text-center relative z-10">
+              <div className="mt-8 sm:mt-10 md:mt-14 lg:mt-16 text-center relative z-10">
                 <button 
                   onClick={handleStartAssessment}
-                  className="w-full sm:w-auto px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 bg-white text-slate-900 rounded-xl sm:rounded-2xl font-black shadow-xl sm:shadow-2xl transition-all hover:scale-105 active:scale-95 text-base sm:text-lg"
+                  className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white text-slate-900 rounded-xl sm:rounded-xl font-black shadow-lg sm:shadow-xl transition-all hover:scale-105 active:scale-95 text-sm sm:text-base"
                 >
                   အခုပဲ စတင်လိုက်ပါ
                 </button>

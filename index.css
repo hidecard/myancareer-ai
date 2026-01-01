@@ -3,3 +3,77 @@
 @tailwind utilities;
 
 /* Custom global styles can be added here */
+
+/* PDF Typography and Layout Fixes */
+@media print {
+  * {
+    font-family: 'Inter', 'Pyidaungsu', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .print-container {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .print-container h1 {
+    font-size: 24px !important;
+  }
+  
+  .print-container h2 {
+    font-size: 20px !important;
+  }
+  
+  .print-container h3 {
+    font-size: 18px !important;
+  }
+  
+  .print-container h4 {
+    font-size: 16px !important;
+  }
+  
+  .print-container p {
+    font-size: 12px !important;
+  }
+  
+  .print-container .text-xs {
+    font-size: 10px !important;
+  }
+  
+  .print-container .text-sm {
+    font-size: 11px !important;
+  }
+  
+  .print-container .text-base {
+    font-size: 12px !important;
+  }
+  
+  .print-container .text-lg {
+    font-size: 14px !important;
+  }
+  
+  .print-container .text-xl {
+    font-size: 16px !important;
+  }
+  
+  .print-container .text-2xl {
+    font-size: 18px !important;
+  }
+  
+  .print-container .text-3xl {
+    font-size: 20px !important;
+  }
+  
+  .print-container .text-4xl {
+    font-size: 24px !important;
+  }
+  
+  .print-container .text-5xl {
+    font-size: 28px !important;
+  }
+  
+  .print-container .text-6xl {
+    font-size: 32px !important;
+  }
+}

@@ -220,31 +220,31 @@ const SkillForm: React.FC<SkillFormProps> = ({ onSubmit, isLoading }) => {
   }, [skills, selectedJobData]);
 
   return (
-    <div className="w-full p-4 sm:p-6 md:p-8 bg-white rounded-none md:rounded-[1.5rem] lg:rounded-[2rem] shadow-sm border border-slate-100 animate-fade-in mb-8 md:mb-16">
-      <div className="mb-4 sm:mb-6 md:mb-8 text-center sm:text-left">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 mb-2">စတင်ဆန်းစစ်ကြည့်ရအောင်</h2>
-        <p className="text-slate-500 font-bold text-xs sm:text-sm">သင့်အကြောင်းကို AI က သိရှိနိုင်ဖို့ အောက်ပါအချက်အလက်တွေကို ဖြည့်စွက်ပေးပါ။</p>
+    <div className="w-full p-4 md:p-6 bg-white rounded-none md:rounded-xl shadow-sm border border-slate-100 animate-fade-in mb-6 md:mb-12">
+      <div className="mb-4 md:mb-6 text-center sm:text-left">
+        <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-1">စတင်ဆန်းစစ်ကြည့်ရအောင်</h2>
+        <p className="text-xs text-slate-500">သင့်အကြောင်းကို AI က သိရှိနိုင်ဖို့ အောက်ပါအချက်အလက်တွေကို ဖြည့်စွက်ပေးပါ။</p>
       </div>
       
-      <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10">
-        <div className="space-y-4">
-          <label className={`block text-sm font-black transition-colors ${errors.skills ? 'text-rose-600' : 'text-slate-700'}`}>
+      <form onSubmit={handleSubmit} className="space-y-5 md:space-y-8">
+        <div className="space-y-3">
+          <label className={`block text-sm font-medium transition-colors ${errors.skills ? 'text-rose-600' : 'text-slate-700'}`}>
             လက်ရှိ တတ်မြောက်ထားသည့် စွမ်းရည်များ (Skills)
           </label>
-          <div className="flex flex-wrap gap-1.5 md:gap-2 mb-2">
+          <div className="flex flex-wrap gap-1.5 mb-2">
             {suggestedSkills.map(s => (
               <button 
                 key={s} 
                 type="button" 
                 onClick={() => addTag('skills', s)} 
-                className="text-[10px] md:text-xs font-bold px-3 py-1.5 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-200 rounded-xl transition-all"
+                className="text-[10px] font-medium px-2.5 py-1 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-200 rounded-lg transition-all"
               >
                 +{s}
               </button>
             ))}
           </div>
           <textarea
-            className={`w-full p-4 md:p-5 border rounded-2xl md:rounded-3xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all min-h-[140px] text-sm md:text-base resize-none leading-relaxed ${errors.skills ? 'border-rose-300 bg-rose-50' : 'border-slate-200 bg-slate-50/30'}`}
+            className={`w-full p-3 md:p-4 border rounded-lg md:rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all min-h-[100px] text-sm resize-none leading-relaxed ${errors.skills ? 'border-rose-300 bg-rose-50' : 'border-slate-200 bg-slate-50'}`}
             placeholder="ဥပမာ - HTML, CSS, Photoshop..."
             value={skills}
             onChange={(e) => setSkills(e.target.value)}
@@ -252,15 +252,15 @@ const SkillForm: React.FC<SkillFormProps> = ({ onSubmit, isLoading }) => {
           />
           
           {relatedSuggestions.length > 0 && (
-            <div className="animate-fade-in space-y-2.5 p-4 bg-blue-50/50 rounded-2xl border border-blue-100">
-              <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest">ဒါတွေကိုလည်း ထပ်ထည့်ကြည့်ပါ -</p>
-              <div className="flex flex-wrap gap-2">
+            <div className="animate-fade-in space-y-2 p-3 bg-blue-50/50 rounded-lg border border-blue-100">
+              <p className="text-[9px] font-medium text-blue-600 uppercase tracking-wider">ဒါတွေကိုလည်း ထပ်ထည့်ကြည့်ပါ -</p>
+              <div className="flex flex-wrap gap-1.5">
                 {relatedSuggestions.map(s => (
                   <button 
                     key={s} 
                     type="button" 
                     onClick={() => addTag('skills', s)} 
-                    className="text-[10px] md:text-xs font-bold px-3 py-1.5 bg-white hover:bg-blue-600 hover:text-white border border-blue-200 rounded-xl transition-all shadow-sm"
+                    className="text-[10px] font-medium px-2.5 py-1 bg-white hover:bg-blue-600 hover:text-white border border-blue-200 rounded-lg transition-all"
                   >
                     + {s}
                   </button>
@@ -269,19 +269,19 @@ const SkillForm: React.FC<SkillFormProps> = ({ onSubmit, isLoading }) => {
             </div>
           )}
 
-          {errors.skills && <p className="text-rose-600 text-xs font-bold flex items-center gap-1.5 mt-1">{errors.skills}</p>}
+          {errors.skills && <p className="text-rose-600 text-xs font-medium flex items-center gap-1">{errors.skills}</p>}
         </div>
 
-        <div className="p-4 md:p-8 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+        <div className="p-4 md:p-6 bg-slate-50 rounded-lg md:rounded-xl border border-slate-100 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
             <div className="text-center sm:text-left">
-              <h3 className="text-sm md:text-base font-black text-slate-900">Skill Gap Analyzer</h3>
-              <p className="text-[10px] md:text-xs font-bold text-slate-500">ရည်မှန်းထားတဲ့ အလုပ်နဲ့ သင့်အရည်အချင်းကို နှိုင်းယှဉ်ကြည့်ပါ</p>
+              <h3 className="text-sm font-bold text-slate-900">Skill Gap Analyzer</h3>
+              <p className="text-[10px] text-slate-500">ရည်မှန်းထားတဲ့ အလုပ်နဲ့ သင့်အရည်အချင်းကို နှိုင်းယှဉ်ကြည့်ပါ</p>
             </div>
             <select 
               value={targetJobId}
               onChange={(e) => setTargetJobId(e.target.value)}
-              className="w-full sm:w-auto bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs md:text-sm font-bold outline-none focus:ring-2 focus:ring-blue-500/20 shadow-sm"
+              className="w-full sm:w-auto bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-medium outline-none focus:ring-2 focus:ring-blue-500/20"
             >
               <option value="">ရည်မှန်းထားသော အလုပ်ကို ရွေးချယ်ပါ</option>
               {TARGET_JOBS.map(job => (
@@ -291,109 +291,109 @@ const SkillForm: React.FC<SkillFormProps> = ({ onSubmit, isLoading }) => {
           </div>
 
           {selectedJobData && gapAnalysis ? (
-            <div className="space-y-6 animate-fade-in">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-2xl border border-slate-100">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">အလုပ်အကိုင် အနှစ်ချုပ်</p>
-                  <p className="text-[11px] font-bold text-slate-700 leading-relaxed">{selectedJobData.description}</p>
+            <div className="space-y-4 animate-fade-in">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <p className="text-[8px] text-slate-400 uppercase tracking-wider mb-1">အလုပ်အကိုင် အနှစ်ချုပ်</p>
+                  <p className="text-[10px] text-slate-700 leading-relaxed">{selectedJobData.description}</p>
                 </div>
-                <div className="bg-white p-4 rounded-2xl border border-slate-100">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">ခန့်မှန်းလစာ</p>
-                  <p className="text-sm font-black text-blue-600">{selectedJobData.salaryRange}</p>
+                <div className="bg-white p-3 rounded-lg border border-slate-100">
+                  <p className="text-[8px] text-slate-400 uppercase tracking-wider mb-1">ခန့်မှန်းလစာ</p>
+                  <p className="text-sm font-bold text-blue-600">{selectedJobData.salaryRange}</p>
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex justify-between items-end">
-                  <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest">Readiness Score</span>
-                  <span className="text-xl md:text-2xl font-black text-slate-900">{gapAnalysis.readiness}%</span>
+                  <span className="text-[9px] font-medium text-blue-600 uppercase tracking-wider">Readiness Score</span>
+                  <span className="text-lg font-bold text-slate-900">{gapAnalysis.readiness}%</span>
                 </div>
-                <div className="w-full bg-slate-200 h-2.5 md:h-3 rounded-full overflow-hidden shadow-inner">
+                <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden shadow-inner">
                   <div 
-                    className={`h-full transition-all duration-1000 ease-out ${gapAnalysis.readiness > 70 ? 'bg-emerald-500' : gapAnalysis.readiness > 40 ? 'bg-amber-500' : 'bg-rose-500'}`}
+                    className={`h-full transition-all duration-500 ease-out ${gapAnalysis.readiness > 70 ? 'bg-emerald-500' : gapAnalysis.readiness > 40 ? 'bg-amber-500' : 'bg-rose-500'}`}
                     style={{ width: `${gapAnalysis.readiness}%` }}
                   ></div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <p className="text-[8px] text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     ပိုင်နိုင်သော စွမ်းရည်များ ({gapAnalysis.matching.length})
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {gapAnalysis.matching.length > 0 ? gapAnalysis.matching.map(s => (
-                      <span key={s} className="px-3 py-1.5 bg-emerald-50 text-emerald-700 text-[10px] md:text-xs font-bold rounded-xl border border-emerald-100 flex items-center gap-1.5">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></path></svg>
+                      <span key={s} className="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-medium rounded-lg flex items-center gap-1">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path></svg>
                         {s}
                       </span>
-                    )) : <p className="text-[10px] text-slate-400 font-medium italic">ကိုက်ညီမှု မရှိသေးပါ</p>}
+                    )) : <p className="text-[9px] text-slate-400 italic">ကိုက်ညီမှု မရှိသေးပါ</p>}
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+                <div className="space-y-2">
+                  <p className="text-[8px] text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
                     လိုအပ်နေသော စွမ်းရည်များ ({gapAnalysis.missing.length})
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {gapAnalysis.missing.length > 0 ? gapAnalysis.missing.map(s => (
                       <button 
                         key={s} 
                         type="button"
                         onClick={() => addTag('skills', s)}
-                        className="px-3 py-1.5 bg-rose-50 text-rose-700 text-[10px] md:text-xs font-bold rounded-xl border border-rose-100 flex items-center gap-1.5 hover:bg-rose-100 transition-colors group"
+                        className="px-2.5 py-1 bg-rose-50 text-rose-700 text-[10px] font-medium rounded-lg flex items-center gap-1 hover:bg-rose-100 transition-colors"
                       >
-                        <svg className="w-3.5 h-3.5 text-rose-400 group-hover:text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"></path></svg>
+                        <svg className="w-3 h-3 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
                         {s}
                       </button>
-                    )) : <p className="text-[10px] text-emerald-600 font-bold">ဂုဏ်ယူပါတယ်! လိုအပ်ချက်များ ပြည့်စုံနေပါပြီ</p>}
+                    )) : <p className="text-[9px] text-emerald-600 font-medium">ဂုဏ်ယူပါတယ်! လိုအပ်ချက်များ ပြည့်စုံနေပါပြီ</p>}
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="py-12 text-center border-2 border-dashed border-slate-200 rounded-3xl bg-white/50">
-              <p className="text-xs md:text-sm font-bold text-slate-400">နှိုင်းယှဉ်ချက်ကြည့်ရန် အလုပ်အကိုင်တစ်ခုကို ရွေးချယ်ပါ</p>
+            <div className="py-8 text-center border-2 border-dashed border-slate-200 rounded-xl bg-white/50">
+              <p className="text-xs text-slate-400 font-medium">နှိုင်းယှဉ်ချက်ကြည့်ရန် အလုပ်အကိုင်တစ်ခုကို ရွေးချယ်ပါ</p>
             </div>
           )}
         </div>
 
-        <div className="space-y-4">
-          <label className={`block text-sm font-black transition-colors ${errors.interests ? 'text-rose-600' : 'text-slate-700'}`}>
+        <div className="space-y-3">
+          <label className={`block text-sm font-medium transition-colors ${errors.interests ? 'text-rose-600' : 'text-slate-700'}`}>
             သင် စိတ်ဝင်စားသည့် နယ်ပယ် သို့မဟုတ် ဝါသနာ
           </label>
-          <div className="flex flex-wrap gap-1.5 md:gap-2 mb-2">
+          <div className="flex flex-wrap gap-1.5 mb-2">
             {suggestedInterests.map(i => (
               <button 
                 key={i} 
                 type="button" 
                 onClick={() => addTag('interests', i)} 
-                className="text-[10px] md:text-xs font-bold px-3 py-1.5 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 rounded-xl transition-all"
+                className="text-[10px] font-medium px-2.5 py-1 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 rounded-lg transition-all"
               >
                 +{i}
               </button>
             ))}
           </div>
           <textarea
-            className={`w-full p-4 md:p-5 border rounded-2xl md:rounded-3xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all min-h-[140px] text-sm md:text-base resize-none leading-relaxed ${errors.interests ? 'border-rose-300 bg-rose-50' : 'border-slate-200 bg-slate-50/30'}`}
+            className={`w-full p-3 md:p-4 border rounded-lg md:rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all min-h-[100px] text-sm resize-none leading-relaxed ${errors.interests ? 'border-rose-300 bg-rose-50' : 'border-slate-200 bg-slate-50'}`}
             placeholder="ဥပမာ - Website ရေးရတာကို စိတ်ဝင်စားတယ်..."
             value={interests}
             onChange={(e) => setInterests(e.target.value)}
             disabled={isLoading}
           />
-          {errors.interests && <p className="text-rose-600 text-xs font-bold flex items-center gap-1.5 mt-1">{errors.interests}</p>}
+          {errors.interests && <p className="text-rose-600 text-xs font-medium flex items-center gap-1">{errors.interests}</p>}
         </div>
 
         <button 
           type="submit" 
           disabled={isLoading} 
-          className={`w-full py-5 rounded-2xl md:rounded-[1.5rem] font-black text-white shadow-xl transition-all active:scale-95 text-base md:text-lg ${isLoading ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'}`}
+          className={`w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-white shadow-md transition-all active:scale-95 text-sm md:text-base ${isLoading ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:shadow-lg'}`}
         >
           {isLoading ? (
-            <div className="flex items-center justify-center gap-3">
-              <svg className="animate-spin h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            <div className="flex items-center justify-center gap-2">
+              <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
               <span>AI က တွက်ချက်နေပါသည်...</span>
             </div>
           ) : 'အနာဂတ် လမ်းညွှန်ချက် ရယူမယ်'}

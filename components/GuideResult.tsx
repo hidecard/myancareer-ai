@@ -144,7 +144,7 @@ const GuideResult: React.FC<GuideResultProps> = ({ guide, onReset }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 pb-20 animate-fade-in px-2 sm:px-0 relative">
+    <div className="w-full space-y-8 pb-20 animate-fade-in px-3 sm:px-4 md:px-0 relative">
       {/* Action Bar with Layout Toggle */}
       <div className="flex flex-col gap-4 p-4 bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200 sticky top-16 md:top-20 z-40 shadow-sm transition-all no-print">
         <div className="flex flex-row justify-between items-center gap-2">

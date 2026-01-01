@@ -7,15 +7,15 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onStart }) => {
   return (
-    <div className="relative overflow-hidden bg-white pt-8 pb-16 md:pt-20 md:pb-28">
+    <div className="relative overflow-hidden bg-white w-full pt-8 pb-16 md:pt-10 md:pb-20">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute top-[-5%] left-[-5%] w-[50%] h-[50%] bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-50 rounded-full blur-[80px] opacity-60"></div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full max-w-4xl mx-auto text-center">
           <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-[1.15] md:leading-[1.1]">
             သင့်ရဲ့ <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">အနာဂတ် အလုပ်အကိုင်</span> ကို AI နဲ့ ပုံဖော်လိုက်ပါ
           </h1>
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
           </div>
         </div>
         
-        <div className="mt-12 md:mt-24 max-w-5xl mx-auto">
+        <div className="mt-12 md:mt-20 w-full max-w-5xl mx-auto">
           <div className="relative -m-2 rounded-2xl bg-slate-900/5 p-2 ring-1 ring-inset ring-slate-900/10 lg:-m-4 lg:rounded-[3rem] lg:p-4 shadow-2xl">
             <div className="relative rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl bg-slate-200 aspect-[16/9] md:aspect-[2/1]">
               <img

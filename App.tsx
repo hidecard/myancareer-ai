@@ -59,7 +59,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-100 selection:text-blue-700 overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-100 selection:text-blue-700">
       <Navbar onNav={handleNav} currentPage={currentPage} />
 
       <main className="flex-grow w-full">
@@ -119,7 +119,7 @@ const App: React.FC = () => {
         )}
 
         {currentPage === 'assessment' && (
-          <div className="space-y-8 md:space-y-12 max-w-5xl mx-auto w-full">
+          <div className="space-y-8 md:space-y-12 w-full">
             {!guide ? (
               <SkillForm onSubmit={handleFormSubmit} isLoading={isLoading} />
             ) : (
@@ -129,7 +129,7 @@ const App: React.FC = () => {
         )}
 
         {currentPage === 'trends' && (
-          <div className="animate-fade-in max-w-5xl mx-auto w-full">
+          <div className="animate-fade-in w-full">
             <TrendChart />
           </div>
         )}

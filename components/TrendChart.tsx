@@ -12,7 +12,7 @@ const data = [
 
 const TrendChart: React.FC = () => {
   return (
-    <div className="bg-white p-5 md:p-10 rounded-3xl md:rounded-[3rem] shadow-sm border border-slate-100">
+    <div className="w-full bg-white p-5 md:p-10 rounded-none md:rounded-[2rem] lg:rounded-[3rem] shadow-sm border border-slate-100">
       <div className="mb-6 md:mb-10 text-center sm:text-left">
         <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">လက်ရှိ အလုပ်အကိုင် ဈေးကွက် လိုအပ်ချက်</h3>
         <p className="text-slate-500 font-bold text-xs md:text-sm italic">မြန်မာနိုင်ငံရှိ နည်းပညာနှင့် ဖန်တီးမှု နယ်ပယ်များ၏ ၂၀၂၅ ခုနှစ်အတွင်း ဝယ်လိုအား ခန့်မှန်းချက်</p>
